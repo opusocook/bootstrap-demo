@@ -4,8 +4,8 @@ provider "aws" {
 }
 
 # Default security group to access the instances via WinRM over HTTP and HTTPS
-resource "aws_security_group" "default" {
-  name        = "Prod_SG"
+resource "aws_security_group" "prod_sg" {
+  name        = "prod_sg"
   description = "Prod Security Group"
 
   # RDP access from anywhere
@@ -29,7 +29,7 @@ resource "aws_instance" "windows1" {
   key_name = "${var.key_name}"
 
   # Our Security group to allow WinRM access
-  security_groups = ["${aws_security_group.default.name}"]
+  security_groups = ["${aws_security_group.prod_sg.id}"]
 
   tags = {
       Name = "${var.instance_name}"
@@ -40,7 +40,6 @@ resource "aws_instance" "windows1" {
   <powershell>
     mkdir -Path C:\\ANS
     Invoke-RestMethod -Uri https://raw.githubusercontent.com/LiamEllison/bootstrap-demo/master/PowerShell/script.ps1 -OutFile C:\\ANS\\script.ps1
-    Invoke-Expression 'C:\\ANS\\script.ps1 -Parameter1 ${var.Parameter1} -Parameter2 ${var.Parameter2}
   </powershell>
   EOF
 }

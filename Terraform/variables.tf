@@ -5,7 +5,7 @@ variable "instance_name" {
 
 variable "key_name" {
   description = "Name of the EC2 keypair to use in AWS."
-  default     = "LMLinux"
+  default     = "Terraform_KeyPair"
 }
 
 variable "aws_region" {
@@ -15,7 +15,7 @@ variable "aws_region" {
 
 variable "subnet_id" {
   description = "AWS Subnet launch servers."
-  default     = "subnet-04743a7f"
+  default     = "subnet-5f845324"
 }
 
 
