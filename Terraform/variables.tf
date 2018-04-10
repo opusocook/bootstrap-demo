@@ -1,5 +1,5 @@
 variable "instance_name" {
-  descritpion = "AWS Instance Name"
+  description = "AWS Instance Name"
   default     = "Windows1"
 }
 
@@ -20,12 +20,21 @@ variable "subnet_id" {
 
 
 variable "ami_id" {
-  descritpion = "AWS AMI Image Id"
+  description = "AWS AMI Image Id"
   default     = "ami-9c6b8dfb"
 }
 
 variable "instance_type" {
-  descritpion = "AWS Instance Size"
+  description = "AWS Instance Size"
   default     = "t2.micro"
 }
 
+variable "Parameter1" {
+  description = "First Input"
+  default = "Folder1"
+}
+
+variable "Parameter2" {
+  description = "Second Input"
+  default = "File2"
+}

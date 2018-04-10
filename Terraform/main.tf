@@ -39,7 +39,7 @@ resource "aws_instance" "windows1" {
   user_data = <<EOF
   <powershell>
     mkdir -Path C:\\ANS
-    Invoke-RestMethod -Uri https://raw.githubusercontent.com/nathanguk/bootstrap-demo/master/PowerShell/script.ps1 -OutFile C:\\ANS\\script.ps1
+    Invoke-RestMethod -Uri https://raw.githubusercontent.com/LiamEllison/bootstrap-demo/master/PowerShell/script.ps1 -OutFile C:\\ANS\\script.ps1
     Invoke-Expression 'C:\\ANS\\script.ps1 -Parameter1 ${var.Parameter1} -Parameter2 ${var.Parameter2}
   </powershell>
   EOF
