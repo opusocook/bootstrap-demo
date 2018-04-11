@@ -3,7 +3,7 @@ provider "aws" {
   region = "${var.aws_region}"
 }
 
-# Create modules for 
+# Create modules in line with local folder structure
 module "Security_Groups" {
   source = "./Security_Groups"
 }
