@@ -10,5 +10,6 @@ module "Security_Groups" {
 
 module "Instances" {
   source = "./Instances"
+  prod_sg_id = "${module.Security_Groups.prod_sg_id}"
 }
 

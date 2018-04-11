@@ -9,7 +9,7 @@ resource "aws_instance" "windows1" {
   key_name = "${var.key_name}"
 
   # Our Security group to allow WinRM access
-  security_groups = ["${module.Security_Groups.prod_sg_id}"]
+  security_groups = ["${var.prod_sg_id}"]
 
   tags = {
       Name = "${var.instance_name}"

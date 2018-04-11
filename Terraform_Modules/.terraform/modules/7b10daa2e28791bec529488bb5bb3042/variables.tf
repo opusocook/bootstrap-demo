@@ -38,3 +38,5 @@ variable "Parameter2" {
   description = "Second Input"
   default = "File2"
 }
+
+variable "prod_sg_id" {}
