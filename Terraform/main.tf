@@ -16,6 +16,21 @@ resource "aws_security_group" "prod_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  # HTTPS access from anywhere
+  ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  
+  # HTTP access from anywhere
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
 
 resource "aws_instance" "windows1" {
@@ -40,6 +55,7 @@ resource "aws_instance" "windows1" {
   <powershell>
     mkdir -Path C:\\ANS
     Invoke-RestMethod -Uri https://raw.githubusercontent.com/LiamEllison/bootstrap-demo/master/PowerShell/script.ps1 -OutFile C:\\ANS\\script.ps1
+    Invoke-Expression 'C:\\ANS\\script.ps1 -Parameter1 ${var.Parameter1} -Parameter2 ${var.Parameter2}'
   </powershell>
   EOF
 }
